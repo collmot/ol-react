@@ -44,13 +44,13 @@ Vector.propTypes = {
   style: React.PropTypes.oneOfType([
     React.PropTypes.instanceOf(ol.style.Style),
     React.PropTypes.object,
+    React.PropTypes.func,
     React.PropTypes.arrayOf(React.PropTypes.oneOfType([
       React.PropTypes.instanceOf(ol.style.Style),
       React.PropTypes.object
     ]))
   ]),
   visible: React.PropTypes.bool,
-  style: React.PropTypes.instanceOf(ol.style.Style),
   zIndex: React.PropTypes.number
 }
 
