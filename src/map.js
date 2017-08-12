@@ -46,9 +46,11 @@ export default class Map extends React.Component {
 
   render () {
     return (
-      <div style={this.props.style}>
-        <div ref="target">
-        </div>
+      <div
+        className={this.props.className}
+        style={this.props.style}
+      >
+        <div ref='target' />
         <div>
           {this.props.children}
           {this.props.view}
