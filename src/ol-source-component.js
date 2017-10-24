@@ -1,4 +1,6 @@
 import ol from 'openlayers'
+import PropTypes from 'prop-types';
+
 import OLComponent from './ol-component'
 
 export default class OLSourceComponent extends OLComponent {
@@ -22,10 +24,10 @@ export default class OLSourceComponent extends OLComponent {
 }
 
 OLSourceComponent.contextTypes = {
-  layer: React.PropTypes.instanceOf(ol.layer.Base),
-  map: React.PropTypes.instanceOf(ol.Map)
+  layer: PropTypes.instanceOf(ol.layer.Base),
+  map: PropTypes.instanceOf(ol.Map)
 }
 
 OLSourceComponent.childContextTypes = {
-  source: React.PropTypes.instanceOf(ol.source.Source)
+  source: PropTypes.instanceOf(ol.source.Source)
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ol from 'openlayers';
 import OLSourceComponent from '../ol-source-component';
@@ -13,5 +14,5 @@ export default class MapQuest extends OLSourceComponent {
 }
 
 MapQuest.propTypes = {
-  layer: React.PropTypes.string.isRequired
+  layer: PropTypes.string.isRequired
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react'
 import ol from 'openlayers'
 import OLSourceComponent from '../ol-source-component'
@@ -13,5 +14,5 @@ export default class XYZ extends OLSourceComponent {
 }
 
 XYZ.propTypes = {
-  url: React.PropTypes.string
+  url: PropTypes.string
 }

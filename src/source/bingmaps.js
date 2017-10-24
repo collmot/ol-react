@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react'
 import ol from 'openlayers'
 import OLSourceComponent from '../ol-source-component'
@@ -17,5 +18,5 @@ export default class BingMaps extends OLSourceComponent {
 }
 
 BingMaps.propTypes = {
-  apiKey: React.PropTypes.string.isRequired
+  apiKey: PropTypes.string.isRequired
 }

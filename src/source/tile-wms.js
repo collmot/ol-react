@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react'
 import ol from 'openlayers'
 import OLSourceComponent from '../ol-source-component'
@@ -13,6 +14,6 @@ export default class TileWMS extends OLSourceComponent {
 }
 
 TileWMS.propTypes = {
-  params: React.PropTypes.object.isRequired,
-  url: React.PropTypes.string
+  params: PropTypes.object.isRequired,
+  url: PropTypes.string
 }
