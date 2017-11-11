@@ -21,6 +21,10 @@ export default class LineString extends OLComponent {
   componentWillReceiveProps(newProps) {
     this.updateFromProps(newProps);
   }
+
+  componentWillUnmount() {
+    this.context.feature.setGeometry(undefined);
+  }
 }
 
 LineString.propTypes = {
