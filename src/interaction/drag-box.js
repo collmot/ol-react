@@ -18,3 +18,4 @@ DragBox.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 DragBox.olEvents = ["boxdrag", "boxend", "boxstart"]
+DragBox.olProps = ["condition"]

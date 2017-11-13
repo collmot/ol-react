@@ -19,3 +19,4 @@ Modify.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 Modify.olEvents = ["modifyend", "modifystart"]
+Modify.olProps = ["features"]

@@ -15,3 +15,5 @@ MouseWheelZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
   duration: React.PropTypes.number,
   useAnchor: React.PropTypes.bool
 })
+
+MouseWheelZoom.olProps = ["duration", "useAnchor"]

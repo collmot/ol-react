@@ -16,3 +16,4 @@ Select.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 Select.olEvents = ["select"]
+Select.olProps = ["condition"]

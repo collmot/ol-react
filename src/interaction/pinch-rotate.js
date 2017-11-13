@@ -15,3 +15,5 @@ PinchRotate.propTypes = Object.assign({}, OLInteraction.propTypes, {
   threshold: React.PropTypes.number,
   duration: React.PropTypes.number
 })
+
+PinchRotate.olProps = ["duration", "threshold"]

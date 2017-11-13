@@ -8,6 +8,14 @@ export default class Draw extends OLInteraction {
       type: props.type
     })
   }
+
+  needsNewInteractionInstance_ (newProps, oldProps) {
+    if (newProps.type !== oldProps.type) {
+      return true
+    } else {
+      return super.needsNewInteractionInstance_(newProps, oldProps)
+    }
+  }
 }
 
 Draw.propTypes = Object.assign({}, OLInteraction.propTypes, {
@@ -17,3 +25,4 @@ Draw.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 Draw.olEvents = ["drawend", "drawstart"]
+Draw.olProps = ["type"]

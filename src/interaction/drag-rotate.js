@@ -15,3 +15,5 @@ DragRotate.propTypes = Object.assign({}, OLInteraction.propTypes, {
   condition: React.PropTypes.func,
   duration: React.PropTypes.number
 })
+
+DragRotate.olProps = ["condition", "duration"]
