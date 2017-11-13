@@ -23,3 +23,4 @@ DragZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 DragZoom.olEvents = ["boxdrag", "boxend", "boxstart"]
+DragZoom.olProps = ["condition", "duration", "out"]

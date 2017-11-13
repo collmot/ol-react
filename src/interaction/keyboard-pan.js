@@ -18,3 +18,5 @@ KeyboardPan.propTypes = Object.assign({}, OLInteraction.propTypes, {
   duration: PropTypes.number,
   pixelDelta: PropTypes.number
 })
+
+KeyboardPan.olProps = ["condition", "duration", "pixelDelta"]

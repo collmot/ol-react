@@ -14,3 +14,5 @@ export default class PinchZoom extends OLInteraction {
 PinchZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
   duration: PropTypes.number
 })
+
+PinchZoom.olProps = ["duration"]

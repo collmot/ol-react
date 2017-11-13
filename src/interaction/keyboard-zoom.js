@@ -18,3 +18,5 @@ KeyboardZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
   delta: PropTypes.number,
   duration: PropTypes.number
 })
+
+KeyboardZoom.olProps = ["condition", "duration", "pixelDelta"]

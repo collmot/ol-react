@@ -16,3 +16,5 @@ DragRotateAndZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
   condition: PropTypes.func,
   duration: PropTypes.number
 })
+
+DragRotateAndZoom.olProps = ["condition", "duration"]
