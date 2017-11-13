@@ -48,6 +48,12 @@ export default class OLInteraction extends OLComponent {
       this.removeEventHandlers_()
       this.removeInteraction_()
       this.addInteraction_(newProps)
+
+      // The new interaction instance is now set up as if oldProps = {},
+      // so we need to call the handlers that way
+      this.updateProps_(newProps, {})
+      this.updateActiveState_(newProps, {})
+      this.updateEventHandlersFromProps_(newProps, {})
     } else {
       this.updateProps_(newProps, oldProps)
       this.updateActiveState_(newProps, oldProps)
