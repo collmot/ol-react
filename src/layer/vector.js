@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ol from 'openlayers';
 import OLContainer from '../ol-container';
+import OLPropTypes from '../ol-proptypes';
 import { buildStyle } from '../style';
 
 export default class Vector extends OLContainer {
@@ -42,15 +43,7 @@ export default class Vector extends OLContainer {
 Vector.propTypes = {
   updateWhileAnimating: PropTypes.bool,
   updateWhileInteracting: PropTypes.bool,
-  style: PropTypes.oneOfType([
-    PropTypes.instanceOf(ol.style.Style),
-    PropTypes.object,
-    PropTypes.func,
-    PropTypes.arrayOf(PropTypes.oneOfType([
-      PropTypes.instanceOf(ol.style.Style),
-      PropTypes.object
-    ]))
-  ]),
+  style: OLPropTypes.Style,
   visible: PropTypes.bool,
   zIndex: PropTypes.number
 }

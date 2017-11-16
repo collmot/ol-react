@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ol from 'openlayers';
 import OLComponent from './ol-component';
-import { buildStyle } from './style';
+import { buildStyle, StylePropType } from './style';
 
 export default class Feature extends OLComponent {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class Feature extends OLComponent {
       feature: this.feature
     }
   }
-  
+
   componentDidMount() {
     this.context.source.addFeature(this.feature);
   }
@@ -36,7 +36,7 @@ export default class Feature extends OLComponent {
 }
 
 Feature.propTypes = {
-  style: PropTypes.object,
+  style: StylePropType,
   children: PropTypes.element,
   id: PropTypes.any.isRequired
 }

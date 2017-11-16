@@ -1,4 +1,5 @@
 import ol from 'openlayers';
+import PropTypes from 'prop-types';
 
 const STYLE_KEY_FACTORIES = {
   geometry: (value) => new ol.style.Geometry(value),
