@@ -21,4 +21,13 @@ OLPropTypes.Extent = function(props, propName, componentName) {
   }
 }
 
+OLPropTypes.Style = React.PropTypes.oneOfType([
+  React.PropTypes.instanceOf(ol.style.Style),
+  React.PropTypes.object,
+  React.PropTypes.arrayOf(React.PropTypes.oneOfType([
+    React.PropTypes.instanceOf(ol.style.Style),
+    React.PropTypes.object
+  ]))
+])
+
 export default OLPropTypes
