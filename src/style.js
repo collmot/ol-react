@@ -1,4 +1,5 @@
 import ol from 'openlayers';
+import React from 'react';
 
 const STYLE_KEY_FACTORIES = {
   geometry: (value) => new ol.style.Geometry(value),
@@ -36,3 +37,12 @@ export function buildStyle(style) {
 
   return new ol.style.Style(result);
 }
+
+export const StylePropType = React.PropTypes.oneOfType([
+  React.PropTypes.instanceOf(ol.style.Style),
+  React.PropTypes.object,
+  React.PropTypes.arrayOf(React.PropTypes.oneOfType([
+    React.PropTypes.instanceOf(ol.style.Style),
+    React.PropTypes.object
+  ]))
+])
