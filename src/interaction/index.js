@@ -14,3 +14,4 @@ export { default as MouseWheelZoom } from './mouse-wheel-zoom';
 export { default as PinchRotate } from './pinch-rotate';
 export { default as PinchZoom } from './pinch-zoom';
 export { default as Select } from './select';
+export { default as Translate } from './translate';
