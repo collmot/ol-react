@@ -84,7 +84,13 @@ export default class OLInteraction extends OLComponent {
   updateEventHandler_ (name, handler) {
     const key = this.eventHandlerKeys_[name]
     if (key) {
-      this.interaction.unByKey(key)
+      if (ol.Observable.unByKey) {
+        /* OpenLayers 4.x */
+        ol.Observable.unByKey(key)
+      } else {
+        /* OpenLayers 3.x */
+        this.interaction.unByKey(key)
+      }
       delete this.eventHandlerKeys_[name]
     }
     if (handler) {
