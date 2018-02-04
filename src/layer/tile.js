@@ -1,5 +1,5 @@
 import Map from 'ol/map'
-import TileLayer from '/ol/layer/tile'
+import TileLayer from 'ol/layer/tile'
 import PropTypes from 'prop-types'
 import React from 'react'
 

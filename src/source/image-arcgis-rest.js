@@ -1,8 +1,8 @@
+import BaseLayer from 'ol/layer/base'
+import Map from 'ol/map'
 import Source from 'ol/source/source'
 
-import PropTypes from 'prop-types';
-import React from 'react'
-import ol from 'openlayers'
+import PropTypes from 'prop-types'
 import OLComponent from '../ol-component'
 import * as interaction from '../interaction'
 
@@ -35,8 +35,8 @@ ImageArcGISRest.defaultProps = {
 }
 
 ImageArcGISRest.contextTypes = {
-  layer: PropTypes.instanceOf(ol.layer.Base),
-  map: PropTypes.instanceOf(ol.Map)
+  layer: PropTypes.instanceOf(BaseLayer),
+  map: PropTypes.instanceOf(Map)
 }
 
 ImageArcGISRest.childContextTypes = {

@@ -5,8 +5,7 @@ import Stroke from 'ol/style/stroke'
 import Style from 'ol/style/style'
 import Text from 'ol/style/text'
 
-import ol from 'openlayers';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const STYLE_KEY_FACTORIES = {
   geometry: (value) => new Geometry(value),

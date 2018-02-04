@@ -6,7 +6,6 @@ import VectorSource from 'ol/source/vector'
 
 import PropTypes from 'prop-types'
 import React from 'react'
-import ol from 'openlayers'
 import OLComponent from '../ol-component'
 import * as interaction from '../interaction'
 

@@ -1,14 +1,13 @@
-import Feature from 'ol/feature';
+import Feature from 'ol/feature'
+import LineStringGeometry from 'ol/geom/linestring'
+import PropTypes from 'prop-types'
 
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLComponent from '../ol-component';
+import OLComponent from '../ol-component'
 
 export default class LineString extends OLComponent {
   constructor(props) {
     super(props);
-    this.geometry = new ol.geom.LineString();
+    this.geometry = new LineStringGeometry();
     this.updateFromProps(props);
   }
 

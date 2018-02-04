@@ -2,7 +2,6 @@ import LayerBase from 'ol/layer/base'
 import Map from 'ol/map'
 import Source from 'ol/source/source'
 
-import ol from 'openlayers'
 import PropTypes from 'prop-types'
 
 import OLComponent from './ol-component'
