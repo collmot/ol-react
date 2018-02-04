@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLInteraction from './ol-interaction';
+import Collection from 'ol/collection'
+import ModifyInteraction from 'ol/interaction/modify'
+import PropTypes from 'prop-types'
+
+import OLInteraction from './ol-interaction'
 
 export default class Modify extends OLInteraction {
   createInteraction (props) {
-    return new ol.interaction.Modify({
+    return new ModifyInteraction({
       condition: props.condition,
       features: props.features
     })
@@ -16,8 +17,8 @@ Modify.propTypes = Object.assign({}, OLInteraction.propTypes, {
   condition: PropTypes.func,
   modifyend: PropTypes.func,
   modifystart: PropTypes.func,
-  features: PropTypes.instanceOf(ol.Collection).isRequired
+  features: PropTypes.instanceOf(Collection).isRequired
 })
 
-Modify.olEvents = ["modifyend", "modifystart"]
-Modify.olProps = ["features"]
+Modify.olEvents = ['modifyend', 'modifystart']
+Modify.olProps = ['features']

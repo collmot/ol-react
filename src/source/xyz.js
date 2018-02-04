@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
+import XZYSource from 'ol/source/xyz'
+import PropTypes from 'prop-types'
 import React from 'react'
-import ol from 'openlayers'
+
 import OLSourceComponent from '../ol-source-component'
 
 export default class XYZ extends OLSourceComponent {
@@ -9,7 +10,7 @@ export default class XYZ extends OLSourceComponent {
   }
 
   _createSourceFromProps(props) {
-    return new ol.source.XYZ(Object.assign({}, props))
+    return new XYZSource(Object.assign({}, props))
   }
 }
 

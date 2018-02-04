@@ -1,12 +1,14 @@
+import Map from 'ol/map'
+import ImageLayer from 'ol/layer/image'
 import PropTypes from 'prop-types';
 import React from 'react'
-import ol from 'openlayers'
+
 import OLContainer from '../ol-container'
 
 export default class Image extends OLContainer {
   constructor (props) {
     super(props)
-    this.layer = new ol.layer.Image({
+    this.layer = new ImageLayer({
       visible: this.props.visible
     })
     this.layer.setZIndex(props.zIndex)
@@ -42,9 +44,9 @@ Image.defaultProps = {
 }
 
 Image.contextTypes = {
-  map: PropTypes.instanceOf(ol.Map)
+  map: PropTypes.instanceOf(Map)
 }
 
 Image.childContextTypes = {
-  layer: PropTypes.instanceOf(ol.layer.Image)
+  layer: PropTypes.instanceOf(ImageLayer)
 }

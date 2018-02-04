@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLInteraction from './ol-interaction';
+import KeyboardPanInteraction from 'ol/interaction/keyboardpan'
+import PropTypes from 'prop-types'
+
+import OLInteraction from './ol-interaction'
 
 export default class KeyboardPan extends OLInteraction {
   createInteraction (props) {
-    return new ol.interaction.KeyboardPan({
+    return new KeyboardPanInteraction({
       condition: props.condition,
       duration: props.duration,
       pixelDelta: props.pixelDelta
@@ -19,4 +19,4 @@ KeyboardPan.propTypes = Object.assign({}, OLInteraction.propTypes, {
   pixelDelta: PropTypes.number
 })
 
-KeyboardPan.olProps = ["condition", "duration", "pixelDelta"]
+KeyboardPan.olProps = ['condition', 'duration', 'pixelDelta']

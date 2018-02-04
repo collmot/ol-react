@@ -1,5 +1,9 @@
+import LayerBase from 'ol/layer/base'
+import Map from 'ol/map'
+import Source from 'ol/source/source'
+
 import ol from 'openlayers'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 import OLComponent from './ol-component'
 
@@ -30,10 +34,10 @@ export default class OLSourceComponent extends OLComponent {
 }
 
 OLSourceComponent.contextTypes = {
-  layer: PropTypes.instanceOf(ol.layer.Base),
-  map: PropTypes.instanceOf(ol.Map)
+  layer: PropTypes.instanceOf(LayerBase),
+  map: PropTypes.instanceOf(Map)
 }
 
 OLSourceComponent.childContextTypes = {
-  source: PropTypes.instanceOf(ol.source.Source)
+  source: PropTypes.instanceOf(Source)
 }

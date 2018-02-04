@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLInteraction from './ol-interaction';
+import DrawInteraction from 'ol/interaction/draw'
+import PropTypes from 'prop-types'
+
+import OLInteraction from './ol-interaction'
 
 export default class Draw extends OLInteraction {
   createInteraction (props) {
-    return new ol.interaction.Draw({
+    return new DrawInteraction({
       type: props.type
     })
   }
@@ -25,5 +25,5 @@ Draw.propTypes = Object.assign({}, OLInteraction.propTypes, {
   type: PropTypes.string.isRequired
 })
 
-Draw.olEvents = ["drawend", "drawstart"]
-Draw.olProps = ["type"]
+Draw.olEvents = ['drawend', 'drawstart']
+Draw.olProps = ['type']

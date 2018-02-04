@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLControl from './ol-control';
+import ZoomControl from 'ol/control/zoom'
+import PropTypes from 'prop-types'
+import React from 'react'
+
+import OLControl from './ol-control'
 
 export default class Zoom extends OLControl {
   createControl (props) {
-    return new ol.control.Zoom({
+    return new ZoomControl({
       className: props.className,
       delta: props.delta,
       duration: props.duration,

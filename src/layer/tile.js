@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
+import Map from 'ol/map'
+import TileLayer from '/ol/layer/tile'
+import PropTypes from 'prop-types'
 import React from 'react'
-import ol from 'openlayers'
+
 import OLContainer from '../ol-container'
 
 export default class Tile extends OLContainer {
   constructor (props) {
     super(props)
-    this.layer = new ol.layer.Tile({
+    this.layer = new Tile({
       visible: this.props.visible
     })
     this.layer.setZIndex(props.zIndex)
@@ -42,9 +44,9 @@ Tile.defaultProps = {
 }
 
 Tile.contextTypes = {
-  map: PropTypes.instanceOf(ol.Map)
+  map: PropTypes.instanceOf(Map)
 }
 
 Tile.childContextTypes = {
-  layer: PropTypes.instanceOf(ol.layer.Tile)
+  layer: PropTypes.instanceOf(Tile)
 }

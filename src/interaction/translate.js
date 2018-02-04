@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types';
-import ol from 'openlayers';
-import OLInteraction from './ol-interaction';
+import Collection from 'ol/collection'
+import Layer from 'ol/layer/layer'
+import TranslateInteraction from 'ol/interaction/translate'
+import PropTypes from 'prop-types'
+
+import OLInteraction from './ol-interaction'
 
 export default class Translate extends OLInteraction {
   createInteraction (props) {
-    return new ol.interaction.Select({
+    return new TranslateInteraction({
       features: props.features,
       hitTolerance: props.hitTolerance,
       layers: props.layers
@@ -13,11 +16,11 @@ export default class Translate extends OLInteraction {
 }
 
 Translate.propTypes = Object.assign({}, OLInteraction.propTypes, {
-  features: PropTypes.instanceOf(ol.Collection),
+  features: PropTypes.instanceOf(Collection),
   hitTolerance: PropTypes.number,
   layers: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.instanceOf(ol.layer.Layer)),
-    PropTypes.instanceOf(ol.Collection),
+    PropTypes.arrayOf(PropTypes.instanceOf(Layer)),
+    PropTypes.instanceOf(Collection),
     PropTypes.func
   ]),
 
@@ -26,5 +29,5 @@ Translate.propTypes = Object.assign({}, OLInteraction.propTypes, {
   translating: PropTypes.func
 })
 
-Translate.olEvents = ["translatestart", "translateend", "translating"]
-Translate.olProps = ["features", "hitTolerance", "layers"]
+Translate.olEvents = ['translatestart', 'translateend', 'translating']
+Translate.olProps = ['features', 'hitTolerance', 'layers']

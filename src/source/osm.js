@@ -1,5 +1,6 @@
+import OSMSource from 'ol/source/osm'
 import React from 'react';
-import ol from 'openlayers';
+
 import OLSourceComponent from '../ol-source-component'
 
 export default class OSM extends OLSourceComponent {
@@ -8,7 +9,7 @@ export default class OSM extends OLSourceComponent {
   }
 
   _createSourceFromProps(props) {
-    return new ol.source.OSM(Object.assign({}, props));
+    return new OSMSource(Object.assign({}, props));
   }
 }
 

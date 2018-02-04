@@ -1,3 +1,5 @@
+import Feature from 'ol/feature';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import ol from 'openlayers';
@@ -25,5 +27,5 @@ RawGeometry.propTypes = {
 }
 
 RawGeometry.contextTypes = {
-  feature: PropTypes.instanceOf(ol.Feature)
+  feature: PropTypes.instanceOf(Feature)
 }

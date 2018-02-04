@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLInteraction from './ol-interaction';
+import PinchRotateInteraction from 'ol/interaction/pinchrotate'
+import PropTypes from 'prop-types'
+
+import OLInteraction from './ol-interaction'
 
 export default class PinchRotate extends OLInteraction {
   createInteraction (props) {
-    return new ol.interaction.PinchRotate({
+    return new PinchRotateInteraction({
       threshold: props.threshold,
       duration: props.duration
     })
@@ -17,4 +17,4 @@ PinchRotate.propTypes = Object.assign({}, OLInteraction.propTypes, {
   duration: PropTypes.number
 })
 
-PinchRotate.olProps = ["duration", "threshold"]
+PinchRotate.olProps = ['duration', 'threshold']

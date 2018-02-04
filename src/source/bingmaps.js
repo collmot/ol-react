@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
+import BingMapsSource from 'ol/source/bingmaps'
+import PropTypes from 'prop-types'
 import React from 'react'
-import ol from 'openlayers'
+
 import OLSourceComponent from '../ol-source-component'
 
 export default class BingMaps extends OLSourceComponent {
@@ -13,7 +14,7 @@ export default class BingMaps extends OLSourceComponent {
     spreadedProps.key = spreadedProps.apiKey
     delete spreadedProps.apiKey
 
-    return new ol.source.BingMaps(spreadedProps)
+    return new BingMapsSource(spreadedProps)
   }
 }
 

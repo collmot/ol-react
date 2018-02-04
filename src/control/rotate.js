@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLControl from './ol-control';
+import RotateControl from 'ol/control/rotate'
+import PropTypes from 'prop-types'
+import React from 'react'
+
+import OLControl from './ol-control'
 
 export default class Rotate extends OLControl {
   createControl (props) {
-    return new ol.control.Rotate({
+    return new RotateControl({
       autoHide: props.autoHide,
       className: props.className,
       duration: props.duration,

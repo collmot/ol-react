@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLComponent from './ol-component';
+import Map from 'ol/map'
+import OLView from 'ol/view'
+import PropTypes from 'prop-types'
+import React from 'react'
+
+import OLComponent from './ol-component'
 
 export default class View extends OLComponent {
   constructor(props) {
     super(props);
-    this.view = new ol.View();
+    this.view = new OLView();
     //this.view.on("change:center", this.onCenterChanged, this);
     //this.view.on("change:resolution", this.onResolutionChanged, this);
   }
@@ -59,5 +61,5 @@ View.propTypes = {
 }
 
 View.contextTypes = {
-  map: PropTypes.instanceOf(ol.Map)
+  map: PropTypes.instanceOf(Map)
 }

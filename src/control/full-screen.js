@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLControl from './ol-control';
+import FullScreenControl from 'ol/control/fullscreen'
+import PropTypes from 'prop-types'
+import React from 'react'
+
+import OLControl from './ol-control'
 
 export default class FullScreen extends OLControl {
   createControl (props) {
-    return new ol.control.FullScreen({
+    return new FullScreenControl({
       className: props.className,
       keys: props.keys,
       label: props.label,

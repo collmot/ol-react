@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ol from 'openlayers';
-import OLComponent from '../ol-component';
+import Map from 'ol/map'
+import Observable from 'ol/observable'
+import PropTypes from 'prop-types'
+
+import OLComponent from '../ol-component'
 
 export default class OLInteraction extends OLComponent {
   constructor (props) {
@@ -84,9 +85,9 @@ export default class OLInteraction extends OLComponent {
   updateEventHandler_ (name, handler) {
     const key = this.eventHandlerKeys_[name]
     if (key) {
-      if (ol.Observable.unByKey) {
+      if (Observable.unByKey) {
         /* OpenLayers 4.x */
-        ol.Observable.unByKey(key)
+        Observable.unByKey(key)
       } else {
         /* OpenLayers 3.x */
         this.interaction.unByKey(key)
@@ -122,5 +123,5 @@ OLInteraction.defaultProps = {
 }
 
 OLInteraction.contextTypes = {
-  map: PropTypes.instanceOf(ol.Map)
+  map: PropTypes.instanceOf(Map)
 }

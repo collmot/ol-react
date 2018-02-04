@@ -2,7 +2,8 @@
  * @file Property type validators for OpenLayers custom typedefs.
  */
 
-import PropTypes from 'prop-types';
+import Style from 'ol/style/style'
+import PropTypes from 'prop-types'
 
 let OLPropTypes = {}
 
@@ -22,10 +23,10 @@ OLPropTypes.Extent = function(props, propName, componentName) {
 }
 
 OLPropTypes.Style = PropTypes.oneOfType([
-  PropTypes.instanceOf(ol.style.Style),
+  PropTypes.instanceOf(Style),
   PropTypes.object,
   PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.instanceOf(ol.style.Style),
+    PropTypes.instanceOf(Style),
     PropTypes.object
   ]))
 ])

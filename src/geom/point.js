@@ -1,3 +1,5 @@
+import Feature from 'ol/feature';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import ol from 'openlayers';
@@ -32,5 +34,5 @@ Point.propTypes = {
 }
 
 Point.contextTypes = {
-  feature: PropTypes.instanceOf(ol.Feature)
+  feature: PropTypes.instanceOf(Feature)
 }

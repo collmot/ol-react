@@ -1,3 +1,5 @@
+import Source from 'ol/source/source'
+
 import PropTypes from 'prop-types';
 import React from 'react'
 import ol from 'openlayers'
@@ -38,5 +40,5 @@ ImageArcGISRest.contextTypes = {
 }
 
 ImageArcGISRest.childContextTypes = {
-  source: PropTypes.instanceOf(ol.source.Source)
+  source: PropTypes.instanceOf(Source)
 }
