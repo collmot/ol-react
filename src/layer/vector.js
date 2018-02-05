@@ -10,7 +10,7 @@ import { buildStyle } from '../style'
 export default class Vector extends OLContainer {
   constructor (props) {
     super(props)
-    this.layer = new Vector({
+    this.layer = new VectorLayer({
       updateWhileAnimating: props.updateWhileAnimating,
       updateWhileInteracting: props.updateWhileInteracting,
       style: buildStyle(this.props.style),

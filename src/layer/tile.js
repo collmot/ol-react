@@ -8,7 +8,7 @@ import OLContainer from '../ol-container'
 export default class Tile extends OLContainer {
   constructor (props) {
     super(props)
-    this.layer = new Tile({
+    this.layer = new TileLayer({
       visible: this.props.visible
     })
     this.layer.setZIndex(props.zIndex)
