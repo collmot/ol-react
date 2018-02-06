@@ -58,5 +58,5 @@ Vector.contextTypes = {
 }
 
 Vector.childContextTypes = {
-  layer: PropTypes.instanceOf(Vector)
+  layer: PropTypes.instanceOf(VectorLayer)
 }

@@ -48,5 +48,5 @@ Tile.contextTypes = {
 }
 
 Tile.childContextTypes = {
-  layer: PropTypes.instanceOf(Tile)
+  layer: PropTypes.instanceOf(TileLayer)
 }

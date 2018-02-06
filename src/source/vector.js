@@ -44,5 +44,5 @@ Vector.contextTypes = {
 }
 
 Vector.childContextTypes = {
-  source: PropTypes.instanceOf(Source)
+  source: PropTypes.instanceOf(VectorSource)
 }

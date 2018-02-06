@@ -1,6 +1,6 @@
 import BaseLayer from 'ol/layer/base'
 import Map from 'ol/map'
-import Source from 'ol/source/source'
+import Source from 'ol/source/imagearcgisrest'
 
 import PropTypes from 'prop-types'
 import OLComponent from '../ol-component'
@@ -9,7 +9,7 @@ import * as interaction from '../interaction'
 export default class ImageArcGISRest extends OLComponent {
   constructor(props) {
     super(props)
-    this.source = new ol.source.ImageArcGISRest(Object.assign({}, this.props))
+    this.source = new Source(Object.assign({}, this.props))
   }
 
   getChildContext() {
