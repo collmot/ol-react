@@ -7,11 +7,15 @@ import OLInteraction from './ol-interaction'
 
 export default class Modify extends OLInteraction {
   createInteraction (props) {
-    return new ModifyInteraction({
-      condition: props.condition,
-      features: props.features,
-      source: props.source
-    })
+    if (props.features !== undefined || props.source !== undefined) {
+      return new ModifyInteraction({
+        condition: props.condition,
+        features: props.features,
+        source: props.source
+      })
+    } else {
+      return undefined
+    }
   }
 }
 

@@ -12,7 +12,9 @@ export default class OLInteraction extends OLComponent {
 
   addInteraction_ (props) {
     this.interaction = this.createInteraction(props)
-    this.context.map.addInteraction(this.interaction)
+    if (this.interaction !== undefined) {
+      this.context.map.addInteraction(this.interaction)
+    }
   }
 
   componentDidMount () {
@@ -26,7 +28,7 @@ export default class OLInteraction extends OLComponent {
 
   componentWillUnmount () {
     this.propsMaybeChanged_({}, this.props)
-    this.removeInteraction_()
+    this.removeInteraction_({})
   }
 
   createInteraction (props) {
@@ -35,12 +37,17 @@ export default class OLInteraction extends OLComponent {
   }
 
   needsNewInteractionInstance_ (newProps, oldProps) {
+    if (this.interaction === undefined) {
+      return true
+    }
+
     const propNames = this.constructor.olProps || []
     for (let propName of propNames) {
       if (newProps[propName] !== oldProps[propName]) {
         return true
       }
     }
+
     return false
   }
 
@@ -50,15 +57,19 @@ export default class OLInteraction extends OLComponent {
       this.removeInteraction_()
       this.addInteraction_(newProps)
 
-      // The new interaction instance is now set up as if oldProps = {},
-      // so we need to call the handlers that way
-      this.updateProps_(newProps, {})
-      this.updateActiveState_(newProps, {})
-      this.updateEventHandlersFromProps_(newProps, {})
+      if (this.interaction !== undefined) {
+        // The new interaction instance is now set up as if oldProps = {},
+        // so we need to call the handlers that way
+        this.updateProps_(newProps, {})
+        this.updateActiveState_(newProps, {})
+        this.updateEventHandlersFromProps_(newProps, {})
+      }
     } else {
-      this.updateProps_(newProps, oldProps)
-      this.updateActiveState_(newProps, oldProps)
-      this.updateEventHandlersFromProps_(newProps, oldProps)
+      if (this.interaction !== undefined) {
+        this.updateProps_(newProps, oldProps)
+        this.updateActiveState_(newProps, oldProps)
+        this.updateEventHandlersFromProps_(newProps, oldProps)
+      }
     }
   }
 
@@ -70,8 +81,10 @@ export default class OLInteraction extends OLComponent {
   }
 
   removeInteraction_ () {
-    this.context.map.removeInteraction(this.interaction)
-    this.interaction = undefined
+    if (this.interaction !== undefined) {
+      this.context.map.removeInteraction(this.interaction)
+      this.interaction = undefined
+    }
   }
 
   updateActiveState_ (props) {
