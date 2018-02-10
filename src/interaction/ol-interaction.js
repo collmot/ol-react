@@ -11,7 +11,7 @@ export default class OLInteraction extends OLComponent {
   }
 
   addInteraction_ (props) {
-    this.interaction = this.createInteraction(props)
+    this.interaction = this.createInteraction(props, this.context)
     if (this.interaction !== undefined) {
       this.context.map.addInteraction(this.interaction)
     }
