@@ -6,7 +6,8 @@ import OLInteraction from './ol-interaction'
 export default class Draw extends OLInteraction {
   createInteraction (props) {
     return new DrawInteraction({
-      type: props.type
+      type: props.type,
+      geometryFunction: props.geometryFunction
     })
   }
 
@@ -22,8 +23,9 @@ export default class Draw extends OLInteraction {
 Draw.propTypes = Object.assign({}, OLInteraction.propTypes, {
   drawend: PropTypes.func,
   drawstart: PropTypes.func,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  geometryFunction: PropTypes.func
 })
 
 Draw.olEvents = ['drawend', 'drawstart']
-Draw.olProps = ['type']
+Draw.olProps = ['type', 'geometryFunction']
