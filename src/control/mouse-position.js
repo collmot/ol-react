@@ -1,9 +1,10 @@
 import MousePositionControl from 'ol/control/mouseposition'
-import Projection from 'ol/proj/projection'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 import OLControl from './ol-control'
+
+import OLPropTypes from '../ol-proptypes'
 
 export default class MousePosition extends OLControl {
   createControl (props) {
@@ -19,9 +20,6 @@ export default class MousePosition extends OLControl {
 MousePosition.propTypes = Object.assign({}, OLControl.propTypes, {
   className: PropTypes.string,
   coordinateFormat: PropTypes.func,
-  projection: PropTypes.oneOfType([
-    PropTypes.instanceOf(Projection),
-    PropTypes.string
-  ]),
+  projection: OLPropTypes.Projection,
   undefinedHTML: PropTypes.string
 })

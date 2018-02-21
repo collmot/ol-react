@@ -2,10 +2,11 @@
  * @file Property type validators for OpenLayers custom typedefs.
  */
 
+import Projection from 'ol/proj/projection'
 import Style from 'ol/style/style'
 import PropTypes from 'prop-types'
 
-let OLPropTypes = {}
+const OLPropTypes = {}
 
 /*
  * Custom validator funciton for ol.Extent (an array of four numbers).
@@ -21,6 +22,11 @@ OLPropTypes.Extent = function(props, propName, componentName) {
     );
   }
 }
+
+OLPropTypes.Projection = PropTypes.oneOfType([
+  PropTypes.instanceOf(Projection),
+  PropTypes.string
+])
 
 OLPropTypes.Style = PropTypes.oneOfType([
   PropTypes.instanceOf(Style),
