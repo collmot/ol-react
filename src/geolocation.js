@@ -47,15 +47,6 @@ export default class Geolocation extends React.Component {
     }
 
     if (oldProps.projection !== newProps.projection) {
-      const effectiveProjection = newProps.projection || (
-        context.map && context.map.getView() ? context.map.getView().getProjection() : undefined
-      )
-
-      if (effectiveProjection === undefined) {
-        throw new Error('no projection defined and cannot obtain one from ' +
-                        'the context either')
-      }
-
       this.geolocation_.setProjection(effectiveProjection)
     }
 
