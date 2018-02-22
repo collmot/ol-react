@@ -12,7 +12,7 @@ export default class EventRegistry {
 
     if (names === undefined) {
       this.names_ = {}
-    } else if (names === Array.isArray(names)) {
+    } else if (Array.isArray(names)) {
       this.names_ = {}
       for (name of names) {
         this.names_[name] = name
