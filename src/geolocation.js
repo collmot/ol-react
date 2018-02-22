@@ -47,7 +47,7 @@ export default class Geolocation extends React.Component {
     }
 
     if (oldProps.projection !== newProps.projection) {
-      this.geolocation_.setProjection(effectiveProjection)
+      this.geolocation_.setProjection(newProps.projection)
     }
 
     this.events_.updateHandlers(newProps)
