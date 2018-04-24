@@ -11,7 +11,7 @@ const OLPropTypes = {}
 /*
  * Custom validator funciton for ol.Extent (an array of four numbers).
  */
-OLPropTypes.Extent = function(props, propName, componentName) {
+OLPropTypes.Extent = function (props, propName, componentName) {
   if (
     PropTypes.arrayOf(PropTypes.number)(props, propName, componentName) instanceof Error ||
     props[propName].length !== 4
@@ -19,7 +19,7 @@ OLPropTypes.Extent = function(props, propName, componentName) {
     return new Error(
       'Invalid prop `' + propName + '` supplied to' +
       ' `' + componentName + '`. Validation failed.'
-    );
+    )
   }
 }
 
@@ -31,6 +31,7 @@ OLPropTypes.Projection = PropTypes.oneOfType([
 OLPropTypes.Style = PropTypes.oneOfType([
   PropTypes.instanceOf(Style),
   PropTypes.object,
+  PropTypes.func,
   PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.instanceOf(Style),
     PropTypes.object
