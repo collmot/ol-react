@@ -35,3 +35,8 @@ OverviewMap.propTypes = Object.assign({}, OLControl.propTypes, {
   tipLabel: PropTypes.string,
   view: PropTypes.instanceOf(View)
 })
+
+OverviewMap.olProps = [
+  'className', 'collapsed', 'collapseLabel', 'collapsible', 'label',
+  'layers', 'tipLabel', 'view'
+]

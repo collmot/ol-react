@@ -20,3 +20,7 @@ ScaleLine.propTypes = Object.assign({}, OLControl.propTypes, {
   minWidth: PropTypes.number,
   units: PropTypes.oneOf(ScaleLineUnits)
 })
+
+ScaleLine.olProps = [
+  'className', 'minWidth', 'units'
+]

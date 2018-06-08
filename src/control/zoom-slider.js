@@ -21,3 +21,7 @@ ZoomSlider.propTypes = Object.assign({}, OLControl.propTypes, {
   maxResolution: PropTypes.number,
   minResolution: PropTypes.number
 })
+
+ZoomSlider.olProps = [
+  'className', 'duration', 'maxResolution', 'minResolution'
+]

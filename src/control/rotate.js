@@ -25,3 +25,7 @@ Rotate.propTypes = Object.assign({}, OLControl.propTypes, {
   resetNorth: PropTypes.func,
   tipLabel: PropTypes.string
 })
+
+Rotate.olProps = [
+  'autoHide', 'className', 'duration', 'label', 'resetNorth', 'tipLabel'
+]

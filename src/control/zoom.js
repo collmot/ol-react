@@ -27,3 +27,8 @@ Zoom.propTypes = Object.assign({}, OLControl.propTypes, {
   zoomOutLabel: PropTypes.node,
   zoomOutTipLabel: PropTypes.string
 })
+
+Zoom.olProps = [
+  'className', 'delta', 'duration', 'zoomInLabel', 'zoomInTipLabel',
+  'zoomOutLabel', 'zoomOutTipLabel'
+]

@@ -23,3 +23,7 @@ MousePosition.propTypes = Object.assign({}, OLControl.propTypes, {
   projection: OLPropTypes.Projection,
   undefinedHTML: PropTypes.string
 })
+
+MousePosition.olProps = [
+  'className', 'coordinateFormat', 'projection', 'undefinedHTML'
+]

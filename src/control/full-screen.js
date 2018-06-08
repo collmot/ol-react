@@ -28,3 +28,7 @@ FullScreen.propTypes = Object.assign({}, OLControl.propTypes, {
   ]),
   tipLabel: PropTypes.string
 })
+
+FullScreen.olProps = [
+  'className', 'keys', 'label', 'labelActive', 'source', 'tipLabel'
+]

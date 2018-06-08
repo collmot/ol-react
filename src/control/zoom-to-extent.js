@@ -23,3 +23,7 @@ ZoomToExtent.propTypes = Object.assign({}, OLControl.propTypes, {
   label: PropTypes.node,
   tipLabel: PropTypes.string
 })
+
+ZoomToExtent.olProps = [
+  'className', 'extent', 'label', 'tipLabel'
+]

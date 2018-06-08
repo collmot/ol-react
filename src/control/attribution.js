@@ -25,3 +25,8 @@ Attribution.propTypes = Object.assign({}, OLControl.propTypes, {
   label: PropTypes.node,
   tipLabel: PropTypes.string
 })
+
+Attribution.olProps = [
+  'className', 'collapsed', 'collapseLabel', 'collapsible', 'label',
+  'tipLabel'
+]
