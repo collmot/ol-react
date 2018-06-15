@@ -64,11 +64,7 @@ class View extends OLComponent {
   }
 
   componentWillUnmount () {
-    const { map } = this.props
-
-    if (map) {
-      map.setView(undefined)
-    }
+    // Don't unset the view from the map; OpenLayers does not support it
   }
 }
 
