@@ -4,9 +4,10 @@ import React from 'react'
 
 import OLControl from './ol-control'
 
+import { withMap } from '../context'
 import OLPropTypes from '../ol-proptypes'
 
-export default class MousePosition extends OLControl {
+class MousePosition extends OLControl {
   createControl (props) {
     return new MousePositionControl({
       className: props.className,
@@ -27,3 +28,5 @@ MousePosition.propTypes = Object.assign({}, OLControl.propTypes, {
 MousePosition.olProps = [
   'className', 'coordinateFormat', 'projection', 'undefinedHTML'
 ]
+
+export default withMap(MousePosition)

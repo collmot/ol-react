@@ -1,9 +1,11 @@
 import DragZoomInteraction from 'ol/interaction/dragzoom'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class DragZoom extends OLInteraction {
+class DragZoom extends OLInteraction {
   createInteraction (props) {
     return new DragZoomInteraction({
       condition: props.condition,
@@ -24,3 +26,5 @@ DragZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
 
 DragZoom.olEvents = ['boxdrag', 'boxend', 'boxstart']
 DragZoom.olProps = ['condition', 'duration', 'out']
+
+export default withMap(DragZoom)

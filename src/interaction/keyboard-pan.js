@@ -1,9 +1,11 @@
 import KeyboardPanInteraction from 'ol/interaction/keyboardpan'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class KeyboardPan extends OLInteraction {
+class KeyboardPan extends OLInteraction {
   createInteraction (props) {
     return new KeyboardPanInteraction({
       condition: props.condition,
@@ -20,3 +22,5 @@ KeyboardPan.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 KeyboardPan.olProps = ['condition', 'duration', 'pixelDelta']
+
+export default withMap(KeyboardPan)

@@ -4,7 +4,9 @@ import React from 'react'
 
 import OLControl from './ol-control'
 
-export default class FullScreen extends OLControl {
+import { withMap } from '../context'
+
+class FullScreen extends OLControl {
   createControl (props) {
     return new FullScreenControl({
       className: props.className,
@@ -32,3 +34,5 @@ FullScreen.propTypes = Object.assign({}, OLControl.propTypes, {
 FullScreen.olProps = [
   'className', 'keys', 'label', 'labelActive', 'source', 'tipLabel'
 ]
+
+export default withMap(FullScreen)

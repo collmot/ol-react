@@ -2,9 +2,10 @@ import ZoomControl from 'ol/control/zoom'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import { withMap } from '../context'
 import OLControl from './ol-control'
 
-export default class Zoom extends OLControl {
+class Zoom extends OLControl {
   createControl (props) {
     return new ZoomControl({
       className: props.className,
@@ -32,3 +33,5 @@ Zoom.olProps = [
   'className', 'delta', 'duration', 'zoomInLabel', 'zoomInTipLabel',
   'zoomOutLabel', 'zoomOutTipLabel'
 ]
+
+export default withMap(Zoom)

@@ -1,62 +1,26 @@
-import Map from 'ol/map'
 import VectorLayer from 'ol/layer/vector'
 import PropTypes from 'prop-types'
-import React from 'react'
 
-import OLContainer from '../ol-container'
+import OLLayer from './ol-layer'
+
+import { withMap } from '../context'
 import OLPropTypes from '../ol-proptypes'
 import { buildStyle } from '../style'
 
-export default class Vector extends OLContainer {
-  constructor (props) {
-    super(props)
-    this.layer = new VectorLayer({
+class Vector extends OLLayer {
+  createLayer (props) {
+    return new VectorLayer({
+      style: buildStyle(props.style),
       updateWhileAnimating: props.updateWhileAnimating,
-      updateWhileInteracting: props.updateWhileInteracting,
-      style: buildStyle(this.props.style),
-      visible: this.props.visible
+      updateWhileInteracting: props.updateWhileInteracting
     })
-    this.layer.setZIndex(props.zIndex)
-  }
-
-  getChildContext () {
-    return {
-      layer: this.layer
-    }
-  }
-
-  componentDidMount () {
-    this.context.map.addLayer(this.layer)
-  }
-
-  componentWillReceiveProps (newProps) {
-    this.layer.setStyle(buildStyle(newProps.style));
-    this.layer.setVisible(newProps.visible)
-    this.layer.setStyle(newProps.style)
-    this.layer.setZIndex(newProps.zIndex)
-  }
-
-  componentWillUnmount () {
-    this.context.map.removeLayer(this.layer)
   }
 }
 
-Vector.propTypes = {
-  updateWhileAnimating: PropTypes.bool,
-  updateWhileInteracting: PropTypes.bool,
+Vector.propTypes = Object.assign({}, OLLayer.propTypes, {
   style: OLPropTypes.Style,
-  visible: PropTypes.bool,
-  zIndex: PropTypes.number
-}
+  updateWhileAnimating: PropTypes.bool,
+  updateWhileInteracting: PropTypes.bool
+})
 
-Vector.defaultProps = {
-  visible: true
-}
-
-Vector.contextTypes = {
-  map: PropTypes.instanceOf(Map)
-}
-
-Vector.childContextTypes = {
-  layer: PropTypes.instanceOf(VectorLayer)
-}
+export default withMap(Vector)

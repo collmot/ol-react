@@ -1,9 +1,11 @@
 import PinchZoomInteraction from 'ol/interaction/pinchzoom'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class PinchZoom extends OLInteraction {
+class PinchZoom extends OLInteraction {
   createInteraction (props) {
     return new PinchZoomInteraction({
       duration: props.duration
@@ -16,3 +18,5 @@ PinchZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 PinchZoom.olProps = ['duration']
+
+export default withMap(PinchZoom)

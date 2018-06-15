@@ -5,9 +5,10 @@ import View from 'ol/view'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import { withMap } from '../context'
 import OLControl from './ol-control'
 
-export default class OverviewMap extends OLControl {
+class OverviewMap extends OLControl {
   createControl (props) {
     return new OverviewMapControl({
       className: props.className,
@@ -40,3 +41,5 @@ OverviewMap.olProps = [
   'className', 'collapsed', 'collapseLabel', 'collapsible', 'label',
   'layers', 'tipLabel', 'view'
 ]
+
+export default withMap(OverviewMap)

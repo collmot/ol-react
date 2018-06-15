@@ -1,9 +1,11 @@
 import DrawInteraction from 'ol/interaction/draw'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class Draw extends OLInteraction {
+class Draw extends OLInteraction {
   createInteraction (props) {
     return new DrawInteraction({
       type: props.type,
@@ -29,3 +31,5 @@ Draw.propTypes = Object.assign({}, OLInteraction.propTypes, {
 
 Draw.olEvents = ['drawend', 'drawstart']
 Draw.olProps = ['type', 'geometryFunction']
+
+export default withMap(Draw)

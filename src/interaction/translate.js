@@ -3,9 +3,11 @@ import Layer from 'ol/layer/layer'
 import TranslateInteraction from 'ol/interaction/translate'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class Translate extends OLInteraction {
+class Translate extends OLInteraction {
   createInteraction (props) {
     return new TranslateInteraction({
       features: props.features,
@@ -31,3 +33,5 @@ Translate.propTypes = Object.assign({}, OLInteraction.propTypes, {
 
 Translate.olEvents = ['translatestart', 'translateend', 'translating']
 Translate.olProps = ['features', 'hitTolerance', 'layers']
+
+export default withMap(Translate)

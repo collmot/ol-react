@@ -4,7 +4,9 @@ import React from 'react'
 
 import OLControl from './ol-control'
 
-export default class Attribution extends OLControl {
+import { withMap } from '../context'
+
+class Attribution extends OLControl {
   createControl (props) {
     return new AttributionControl({
       className: props.className,
@@ -30,3 +32,5 @@ Attribution.olProps = [
   'className', 'collapsed', 'collapseLabel', 'collapsible', 'label',
   'tipLabel'
 ]
+
+export default withMap(Attribution)

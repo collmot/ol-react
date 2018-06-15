@@ -1,9 +1,11 @@
 import DragRotateAndZoomInteraction from 'ol/interaction/dragrotateandzoom'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class DragRotateAndZoom extends OLInteraction {
+class DragRotateAndZoom extends OLInteraction {
   createInteraction (props) {
     return new DragRotateAndZoomInteraction({
       condition: props.condition,
@@ -18,3 +20,5 @@ DragRotateAndZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 DragRotateAndZoom.olProps = ['condition', 'duration']
+
+export default withMap(DragRotateAndZoom)

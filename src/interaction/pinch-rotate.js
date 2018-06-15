@@ -1,9 +1,11 @@
 import PinchRotateInteraction from 'ol/interaction/pinchrotate'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class PinchRotate extends OLInteraction {
+class PinchRotate extends OLInteraction {
   createInteraction (props) {
     return new PinchRotateInteraction({
       threshold: props.threshold,
@@ -18,3 +20,5 @@ PinchRotate.propTypes = Object.assign({}, OLInteraction.propTypes, {
 })
 
 PinchRotate.olProps = ['duration', 'threshold']
+
+export default withMap(PinchRotate)

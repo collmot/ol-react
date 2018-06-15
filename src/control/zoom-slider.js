@@ -2,9 +2,11 @@ import ZoomSliderControl from 'ol/control/zoomslider'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import { withMap } from '../context'
+
 import OLControl from './ol-control'
 
-export default class ZoomSlider extends OLControl {
+class ZoomSlider extends OLControl {
   createControl (props) {
     return new ZoomSliderControl({
       className: props.className,
@@ -25,3 +27,5 @@ ZoomSlider.propTypes = Object.assign({}, OLControl.propTypes, {
 ZoomSlider.olProps = [
   'className', 'duration', 'maxResolution', 'minResolution'
 ]
+
+export default withMap(ZoomSlider)

@@ -4,20 +4,22 @@ import Source from 'ol/source/source'
 import VectorSource from 'ol/source/vector'
 import PropTypes from 'prop-types'
 
+import { withMap } from '../context'
+
 import OLInteraction from './ol-interaction'
 
-export default class Modify extends OLInteraction {
-  createInteraction (props, context) {
+class Modify extends OLInteraction {
+  createInteraction (props) {
     if (props.features !== undefined || props.source !== undefined) {
       return new ModifyInteraction({
         condition: props.condition,
         features: props.features,
         source: props.source
       })
-    } else if (context.source !== undefined) {
+    } else if (this.context && this.context.source !== undefined) {
       return new ModifyInteraction({
         condition: props.condition,
-        source: context.source
+        source: this.context.source
       })
     } else {
       return undefined
@@ -39,3 +41,5 @@ Modify.contextTypes = Object.assign({}, OLInteraction.contextTypes, {
 
 Modify.olEvents = ['modifyend', 'modifystart']
 Modify.olProps = ['features', 'source']
+
+export default withMap(Modify)

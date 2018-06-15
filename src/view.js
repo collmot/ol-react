@@ -3,16 +3,21 @@ import OLView from 'ol/view'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import { withMap } from './context'
 import OLComponent from './ol-component'
 
-export default class View extends OLComponent {
+class View extends OLComponent {
   constructor(props) {
     super(props);
     this.view = new OLView();
-    //this.view.on("change:center", this.onCenterChanged, this);
-    //this.view.on("change:resolution", this.onResolutionChanged, this);
+
+    /*
+    this.view.on("change:center", this.onCenterChanged, this);
+    this.view.on("change:resolution", this.onResolutionChanged, this);
+    */
   }
 
+  /*
   onCenterChanged (event) {
     this.props.onNavigation({
       center: this.view.getCenter()
@@ -25,12 +30,13 @@ export default class View extends OLComponent {
     })
     return true
   }
+  */
 
   updateCenterAndResolutionFromProps_ (props) {
     this.view.setCenter(props.center);
-    if (typeof props.resolution !== 'undefined') {
+    if (props.resolution !== undefined) {
       this.view.setResolution(props.resolution);
-    } else if (typeof props.zoom !== 'undefined') {
+    } else if (props.zoom !== undefined) {
       this.view.setZoom(props.zoom);
     }
   }
@@ -44,22 +50,34 @@ export default class View extends OLComponent {
   }
 
   componentDidMount () {
-    this.context.map.setView(this.view)
+    const { map } = this.props
+
+    if (map) {
+      map.setView(this.view)
+    }
+
     this.updateFromProps_(this.props, /* isMounting = */ true)
   }
 
-  componentWillReceiveProps (newProps) {
-    this.updateFromProps_(newProps);
+  componentDidUpdate (prevProps) {
+    this.updateFromProps_(this.props);
+  }
+
+  componentWillUnmount () {
+    const { map } = this.props
+
+    if (map) {
+      map.setView(undefined)
+    }
   }
 }
 
 View.propTypes = {
 	center: PropTypes.arrayOf(PropTypes.number).isRequired,
+  map: PropTypes.instanceOf(Map).isRequired,
 	resolution: PropTypes.number,
 	zoom: PropTypes.number,
 	onNavigation: PropTypes.func
 }
 
-View.contextTypes = {
-  map: PropTypes.instanceOf(Map)
-}
+export default withMap(View)

@@ -6,15 +6,18 @@ import OLComponent from '../ol-component'
 
 export default class OLControl extends OLComponent {
   addControl_ (props) {
-    this.control = this.createControl(props, this.context)
-    if (this.control !== undefined) {
-      this.context.map.addControl(this.control)
+    const { map } = props
+
+    this.control = this.createControl(props)
+    this.updateProps_(props, {})
+
+    if (this.control !== undefined && map) {
+      map.addControl(this.control)
     }
   }
 
   componentDidMount () {
     this.addControl_(this.props)
-    this.propsMaybeChanged_(this.props, {})
   }
 
   componentDidUpdate (prevProps) {
@@ -22,8 +25,7 @@ export default class OLControl extends OLComponent {
   }
 
   componentWillUnmount () {
-    this.propsMaybeChanged_({}, this.props)
-    this.removeControl_({})
+    this.removeControl_(this.props)
   }
 
   createControl (props) {
@@ -33,6 +35,10 @@ export default class OLControl extends OLComponent {
 
   needsNewControlInstance_ (newProps, oldProps) {
     if (this.control === undefined) {
+      return true
+    }
+
+    if (newProps.map !== oldProps.map) {
       return true
     }
 
@@ -48,14 +54,8 @@ export default class OLControl extends OLComponent {
 
   propsMaybeChanged_ (newProps, oldProps) {
     if (this.needsNewControlInstance_(newProps, oldProps)) {
-      this.removeControl_()
+      this.removeControl_(oldProps)
       this.addControl_(newProps)
-
-      if (this.control !== undefined) {
-        // The new interaction instance is now set up as if oldProps = {},
-        // so we need to call the handlers that way
-        this.updateProps_(newProps, {})
-      }
     } else {
       if (this.control !== undefined) {
         this.updateProps_(newProps, oldProps)
@@ -63,9 +63,13 @@ export default class OLControl extends OLComponent {
     }
   }
 
-  removeControl_ () {
-    if (this.control !== undefined) {
-      this.context.map.removeControl(this.control)
+  removeControl_ (oldProps) {
+    const { map } = oldProps
+
+    this.updateProps_({}, oldProps)
+
+    if (this.control !== undefined && map !== undefined) {
+      map.removeControl(this.control)
     }
   }
 
@@ -74,11 +78,8 @@ export default class OLControl extends OLComponent {
 }
 
 OLControl.propTypes = {
+  map: PropTypes.instanceOf(Map).isRequired
 }
 
 OLControl.defaultProps = {
-}
-
-OLControl.contextTypes = {
-  map: PropTypes.instanceOf(Map)
 }
