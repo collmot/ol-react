@@ -4,9 +4,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import { withMap } from './context'
-import OLComponent from './ol-component'
 
-class View extends OLComponent {
+class View extends React.Component {
   constructor(props) {
     super(props);
     this.view = new OLView();
@@ -65,6 +64,10 @@ class View extends OLComponent {
 
   componentWillUnmount () {
     // Don't unset the view from the map; OpenLayers does not support it
+  }
+
+  render () {
+    return null
   }
 }
 

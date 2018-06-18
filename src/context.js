@@ -20,5 +20,7 @@ function createHOCForContext (name, context) {
 }
 
 export const MapContext = React.createContext()
+export const LayerContext = React.createContext()
 
 export const withMap = createHOCForContext("map", MapContext)
+export const withLayer = createHOCForContext("layer", LayerContext)

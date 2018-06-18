@@ -12,14 +12,6 @@ class Draw extends OLInteraction {
       geometryFunction: props.geometryFunction
     })
   }
-
-  needsNewInteractionInstance_ (newProps, oldProps) {
-    if (newProps.type !== oldProps.type) {
-      return true
-    } else {
-      return super.needsNewInteractionInstance_(newProps, oldProps)
-    }
-  }
 }
 
 Draw.propTypes = Object.assign({}, OLInteraction.propTypes, {

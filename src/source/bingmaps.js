@@ -1,19 +1,18 @@
 import BingMapsSource from 'ol/source/bingmaps'
 import PropTypes from 'prop-types'
-import React from 'react'
 
-import OLSource from './ol-source'
+import { createOLSourceComponent } from './ol-source'
 
-export default class BingMaps extends OLSource {
-  createSource(props) {
-    let spreadedProps = Object.assign({}, props)
-    spreadedProps.key = spreadedProps.apiKey
-    delete spreadedProps.apiKey
-
-    return new BingMapsSource(spreadedProps)
+export default createOLSourceComponent(
+  "BingMaps",
+  props => {
+    props.key = props.apiKey
+    delete props.apiKey
+    return new BingMapsSource(props)
+  },
+  {
+    propTypes: {
+      apiKey: PropTypes.string.isRequired
+    }
   }
-}
-
-BingMaps.propTypes = {
-  apiKey: PropTypes.string.isRequired
-}
+)

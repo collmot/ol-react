@@ -4,7 +4,7 @@ import React from 'react'
 
 import OLComponent from '../ol-component'
 
-export default class OLControl extends OLComponent {
+export default class OLControl extends React.Component {
   addControl_ (props) {
     const { map } = props
 
@@ -73,6 +73,10 @@ export default class OLControl extends OLComponent {
     }
   }
 
+  render () {
+    return null
+  }
+  
   updateProps_ (newProps, oldProps) {
   }
 }
