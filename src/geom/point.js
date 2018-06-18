@@ -1,10 +1,9 @@
 import Feature from 'ol/feature'
 import PointGeometry from 'ol/geom/point'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import OLComponent from '../ol-component'
-
-export default class Point extends OLComponent {
+export default class Point extends React.Component {
   constructor(props) {
     super(props);
     this.geometry = new PointGeometry();
@@ -25,6 +24,10 @@ export default class Point extends OLComponent {
 
   componentWillUnmount() {
     this.context.feature.setGeometry(undefined);
+  }
+
+  render() {
+    return null
   }
 }
 

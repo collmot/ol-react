@@ -2,10 +2,9 @@ import Map from 'ol/map'
 import Observable from 'ol/observable'
 import PropTypes from 'prop-types'
 
-import OLComponent from '../ol-component'
 import EventRegistry from '../util/event-registry'
 
-export default class OLInteraction extends OLComponent {
+export default class OLInteraction extends React.Component {
   constructor (props) {
     super(props)
     this.events_ = new EventRegistry(this.constructor.olEvents)
@@ -37,6 +36,12 @@ export default class OLInteraction extends OLComponent {
 
   componentWillUnmount () {
     this.removeInteraction_(this.props)
+  }
+
+  render () {
+    return this.props.children ? (
+      <React.Fragment>{this.props.children}</React.Fragment>
+    ) : null
   }
 
   createInteraction (props) {

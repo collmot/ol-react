@@ -1,10 +1,9 @@
 import Feature from 'ol/feature'
 import Geometry from 'ol/geom/geometry'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import OLComponent from '../ol-component'
-
-export default class RawGeometry extends OLComponent {
+export default class RawGeometry extends React.Component {
   /*
    * Allows combining a ol.geom.Geometry class with ol-react. Useful if you have
    * retrieved the object from somewhere else, and don't want to convert back
@@ -16,6 +15,10 @@ export default class RawGeometry extends OLComponent {
 
   componentWillUnmount() {
     this.context.feature.setGeometry(undefined);
+  }
+
+  render() {
+    return null
   }
 }
 

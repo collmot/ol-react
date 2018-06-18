@@ -23,6 +23,12 @@ OLPropTypes.Extent = function (props, propName, componentName) {
   }
 }
 
+OLPropTypes.AttributionLike = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.arrayOf(PropTypes.string),
+  PropTypes.func
+])
+
 OLPropTypes.Projection = PropTypes.oneOfType([
   PropTypes.instanceOf(Projection),
   PropTypes.string

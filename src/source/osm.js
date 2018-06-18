@@ -1,10 +1,26 @@
 import OSMSource from 'ol/source/osm'
-import React from 'react';
+import PropTypes from 'prop-types'
 
-import OLSource from './ol-source'
+import OLPropTypes from '../ol-proptypes'
 
-export default class OSM extends OLSource {
-  createSource(props) {
-    return new OSMSource(Object.assign({}, props));
+import { createOLSourceComponent } from './ol-source'
+
+export default createOLSourceComponent(
+  "OSM",
+  props => new OSMSource(props),
+  {
+    propTypes: {
+      attributions: OLPropTypes.AttributionLike,
+      cacheSize: PropTypes.number,
+      crossOrigin: PropTypes.string,
+      maxZoom: PropTypes.number,
+      opaque: PropTypes.bool,
+      url: PropTypes.string,
+      wrapX: PropTypes.bool
+    },
+    defaultProps: {
+      opaque: true,
+      wrapX: true
+    }
   }
-}
+)

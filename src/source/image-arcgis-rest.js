@@ -1,24 +1,18 @@
-import BaseLayer from 'ol/layer/base'
 import Source from 'ol/source/imagearcgisrest'
-
 import PropTypes from 'prop-types'
 
-import OLComponent from '../ol-component'
-import * as interaction from '../interaction'
+import { createOLSourceComponent } from './ol-source'
 
-import OLSource from './ol-source'
-
-export default class ImageArcGISRest extends OLSource {
-  createSource (props) {
-    return new Source(Object.assign({}, props))
+export default createOLSourceComponent(
+  "ImageArcGISRest",
+  props => new Source(props),
+  {
+    defaultProps: {
+      ratio: 1
+    },
+    propTypes: {
+      ratio: PropTypes.number,
+      url: PropTypes.string.isRequired
+    }
   }
-}
-
-ImageArcGISRest.propTypes = {
-  ratio: PropTypes.number,
-  url: PropTypes.string.isRequired
-}
-
-ImageArcGISRest.defaultProps = {
-  ratio: 1
-}
+)

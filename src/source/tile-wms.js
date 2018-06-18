@@ -1,17 +1,15 @@
 import TileWMSSource from 'ol/source/tilewms'
-
 import PropTypes from 'prop-types'
-import React from 'react'
 
-import OLSource from './ol-source'
+import { createOLSourceComponent } from './ol-source'
 
-export default class TileWMS extends OLSource {
-  createSource(props) {
-    return new TileWMSSource(Object.assign({}, props))
+export default createOLSourceComponent(
+  "TileWMS",
+  props => new TileWMSSource(props),
+  {
+    propTypes: {
+      params: PropTypes.object.isRequired,
+      url: PropTypes.string
+    }
   }
-}
-
-TileWMS.propTypes = {
-  params: PropTypes.object.isRequired,
-  url: PropTypes.string
-}
+)

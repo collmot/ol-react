@@ -1,10 +1,9 @@
 import Feature from 'ol/feature'
 import CircleGeometry from 'ol/geom/circle'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import OLComponent from '../ol-component'
-
-export default class Circle extends OLComponent {
+export default class Circle extends React.Component {
   constructor(props) {
     super(props);
     this.geometry = new CircleGeometry();
@@ -33,6 +32,10 @@ export default class Circle extends OLComponent {
 
   componentWillUnmount() {
     this.context.feature.setGeometry(undefined);
+  }
+
+  render () {
+    return null
   }
 }
 

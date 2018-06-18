@@ -1,10 +1,9 @@
 import Feature from 'ol/feature'
 import MultiPointGeometry from 'ol/geom/multipoint'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import OLComponent from '../ol-component'
-
-export default class MultiPoint extends OLComponent {
+export default class MultiPoint extends React.Component {
   constructor(props) {
     super(props);
     this.geometry = new MultiPointGeometry();
@@ -25,6 +24,10 @@ export default class MultiPoint extends OLComponent {
 
   componentWillUnmount() {
     this.context.feature.setGeometry(undefined);
+  }
+
+  render() {
+    return null
   }
 }
 

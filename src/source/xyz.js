@@ -1,15 +1,14 @@
-import XZYSource from 'ol/source/xyz'
+import XYZSource from 'ol/source/xyz'
 import PropTypes from 'prop-types'
-import React from 'react'
 
-import OLSource from './ol-source'
+import { createOLSourceComponent } from './ol-source'
 
-export default class XYZ extends OLSource {
-  createSource(props) {
-    return new XYZSource(Object.assign({}, props))
+export default createOLSourceComponent(
+  "XYZ",
+  props => new XYZSource(props),
+  {
+    propTypes: {
+      url: PropTypes.string
+    }
   }
-}
-
-XYZ.propTypes = {
-  url: PropTypes.string
-}
+)
