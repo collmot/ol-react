@@ -14,6 +14,6 @@ export default createOLInteractionComponent(
       duration: PropTypes.number,
       useAnchor: PropTypes.bool
     },
-    sensitiveProps: ['duration', 'useAnchor']
+    fragileProps: ['duration', 'useAnchor']
   }
 )

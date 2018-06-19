@@ -14,6 +14,6 @@ export default createOLInteractionComponent(
       condition: PropTypes.func,
       duration: PropTypes.number
     },
-    sensitiveProps: ['condition', 'duration']
+    fragileProps: ['condition', 'duration']
   }
 )

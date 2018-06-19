@@ -16,6 +16,6 @@ export default createOLInteractionComponent(
       duration: PropTypes.number,
       pixelDelta: PropTypes.number
     },
-    sensitiveProps: ['condition', 'duration', 'pixelDelta']
+    fragileProps: ['condition', 'duration', 'pixelDelta']
   }
 )

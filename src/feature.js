@@ -9,15 +9,11 @@ import { buildStyle, StylePropType } from './style'
 export default class Feature extends React.Component {
   constructor (props) {
     super(props)
+
     this.feature = new OLFeature({})
     this.feature.setId(props.id)
-    this._updateFromProps(props)
-  }
 
-  getChildContext () {
-    return {
-      feature: this.feature
-    }
+    this._updateFromProps(props)
   }
 
   componentDidMount () {
@@ -33,24 +29,25 @@ export default class Feature extends React.Component {
   }
 
   render () {
-    return <React.Fragment>{this.props.children}</React.Fragment>
+    const geom = React.Children.only(this.props.children)
+    return React.cloneElement(geom, {
+      feature: this.feature
+    })
   }
 
   _updateFromProps (props) {
+    // Don't try to update the ID here, it won't work. We should rather
+    // show a warning if the user tries to change the ID
     this.feature.setStyle(buildStyle(props.style))
   }
 }
 
 Feature.propTypes = {
+  id: PropTypes.any.isRequired,
   style: OLPropTypes.Style,
   children: PropTypes.element,
-  id: PropTypes.any.isRequired
 }
 
 Feature.contextTypes = {
   source: PropTypes.instanceOf(Source)
-}
-
-Feature.childContextTypes = {
-  feature: PropTypes.instanceOf(OLFeature)
 }

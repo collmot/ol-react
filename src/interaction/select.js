@@ -14,6 +14,6 @@ export default createOLInteractionComponent(
       select: PropTypes.func
     },
     events: ['select'],
-    sensitiveProps: ['condition']
+    fragileProps: ['condition']
   }
 )

@@ -16,7 +16,7 @@ export default createOLInteractionComponent(
       type: PropTypes.string.isRequired,
       geometryFunction: PropTypes.func
     },
-    sensitiveProps: ['type', 'geometryFunction'],
+    fragileProps: ['type', 'geometryFunction'],
     events: ['drawend', 'drawstart']
   }
 )

@@ -19,7 +19,7 @@ export default createOLInteractionComponent(
       duration: PropTypes.number,
       out: PropTypes.bool
     },
-    sensitiveProps: ['condition', 'duration', 'out'],
+    fragileProps: ['condition', 'duration', 'out'],
     events: ['boxdrag', 'boxend', 'boxstart']
   }
 )

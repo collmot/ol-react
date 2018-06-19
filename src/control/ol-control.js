@@ -76,7 +76,7 @@ export default class OLControl extends React.Component {
   render () {
     return null
   }
-  
+
   updateProps_ (newProps, oldProps) {
   }
 }

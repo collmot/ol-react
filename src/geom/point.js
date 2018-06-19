@@ -1,40 +1,18 @@
-import Feature from 'ol/feature'
-import PointGeometry from 'ol/geom/point'
+import Point from 'ol/geom/point'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export default class Point extends React.Component {
-  constructor(props) {
-    super(props);
-    this.geometry = new PointGeometry();
-    this.updateFromProps(props);
+import { createOLGeometryComponent } from './ol-geom'
+
+export default createOLGeometryComponent(
+  'Point',
+  props => new Point(),
+  {
+    propTypes: {
+      coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    },
+    onPropsChanged: (geometry, props) => {
+      geometry.setCoordinates(props.coordinates)
+    }
   }
-
-  updateFromProps(props) {
-    this.geometry.setCoordinates(props.children);
-  }
-
-  componentDidMount() {
-    this.context.feature.setGeometry(this.geometry);
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.updateFromProps(newProps);
-  }
-
-  componentWillUnmount() {
-    this.context.feature.setGeometry(undefined);
-  }
-
-  render() {
-    return null
-  }
-}
-
-Point.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.number).isRequired
-}
-
-Point.contextTypes = {
-  feature: PropTypes.instanceOf(Feature)
-}
+)

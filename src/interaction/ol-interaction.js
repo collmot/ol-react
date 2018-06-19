@@ -1,5 +1,4 @@
 import Map from 'ol/map'
-import Observable from 'ol/observable'
 import PropTypes from 'prop-types'
 
 import { withMap } from '../context'
@@ -104,7 +103,7 @@ export function createOLInteractionComponent (name, factory, options = {}) {
     updateProps_ (newProps, oldProps) {
       this.updateCommonProps_(newProps, oldProps)
       if (options.onPropsChanged) {
-        options.onPropsChanged.call(this, newProps, oldProps)
+        options.onPropsChanged(this.interaction, newProps, oldProps)
       }
     }
   }

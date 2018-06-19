@@ -15,7 +15,7 @@ export default createOLInteractionComponent(
   }),
   {
     events: ['translatestart', 'translateend', 'translating'],
-    sensitiveProps: ['features', 'hitTolerance', 'layers'],
+    fragileProps: ['features', 'hitTolerance', 'layers'],
     propTypes: {
       features: PropTypes.instanceOf(Collection),
       hitTolerance: PropTypes.number,

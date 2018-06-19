@@ -14,6 +14,6 @@ export default createOLInteractionComponent(
       threshold: PropTypes.number,
       duration: PropTypes.number
     },
-    sensitiveProps: ['duration', 'threshold']
+    fragileProps: ['duration', 'threshold']
   }
 )

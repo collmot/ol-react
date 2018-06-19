@@ -33,6 +33,6 @@ export default createOLInteractionComponent(
       source: PropTypes.instanceOf(VectorSource)
     },
     events: ['modifyend', 'modifystart'],
-    sensitiveProps: ['features', 'source']
+    fragileProps: ['features', 'source']
   }
 )

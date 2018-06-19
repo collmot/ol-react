@@ -15,7 +15,7 @@ export default createOLInteractionComponent(
       boxstart: PropTypes.func,
       condition: PropTypes.func
     },
-    sensitiveProps: ['condition'],
+    fragileProps: ['condition'],
     events: ['boxdrag', 'boxend', 'boxstart']
   }
 )
