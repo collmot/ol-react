@@ -1,27 +1,26 @@
 {
-  "name": "ol-react",
-  "version": "0.1.5",
-  "description": "React interface for openlayers",
+  "name": "@collmot/ol-react",
+  "version": "0.2.0",
+  "description": "React interface for OpenLayers, forked from ol-react",
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile",
-    "postinstall": "node scripts/postinstall.js"
+    "prepare": "npm run compile"
   },
-  "author": "richard.hills@gmail.com",
+  "author": "tamas@collmot.com",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "react": "^15.0.1 || ^16.0.0",
-    "react-dom": "^15.0.1 || ^16.0.0"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "peerDependencies": {
-    "react": "^15.0.1 || ^16.0.0",
-    "react-dom": "^15.0.1 || ^16.0.0"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "dependencies": {
-    "ol": "^4.6.4"
+    "ol": "^4.6.5"
   }
 }

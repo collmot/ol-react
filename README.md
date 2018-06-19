@@ -1,4 +1,4 @@
-A thin wrapper for [OpenLayers3](http://openlayers.org/) in [React](https://facebook.github.io/react/).
+A thin wrapper for [OpenLayers 4](http://openlayers.org/) in [React](https://facebook.github.io/react/).
 
 The goal is to be able to write applications using OpenLayers maps in a declarative way. For example, the following is JSX, which can be returned by the render() method on a React component, to generate a map with a red square near the equator.
 
@@ -9,16 +9,19 @@ The goal is to be able to write applications using OpenLayers maps in a declarat
       <layer.Vector>
         <source.Vector>
           <Feature style={{stroke: {color: [255, 0, 0, 1]}}}>
-            <geom.LineString>
-              {[[0, 0], [100000, 0], [100000, 100000], [0, 100000]]}
-            </geom.LineString>
+            <geom.LineString coordinates={[[0, 0], [100000, 0], [100000, 100000], [0, 100000]]} />
           </Feature>
         </source.Vector>
       </layer.Vector>
     </Map>
 
-To understand what each element does, read the [OpenLayers API documentation](http://openlayers.org/en/v3.11.2/apidoc/).
+To understand what each element does, read the [OpenLayers API documentation](http://openlayers.org/en/latest/apidoc/).
 
-It's early days! If you're familiar with react and/or openlayers and are interested in helping, please get in touch. Available on [github](https://github.com/richardhills/ol-react) and [npm](https://www.npmjs.com/package/ol-react).
+This version is forked from [`ol-react`](https://npmjs.com/package/ol-react),
+originally written by Richard Hills. Our version adds support for the new
+React context API, gets rid of class inheritances and includes several other
+OpenLayers components that the original version did not contain. Since the fork
+has diverged too much from upstream, we have renamed it to `@collmot/ol-react`.
 
-I am especially interested in assistance with having each component be optionally [controlled](https://facebook.github.io/react/docs/forms.html#controlled-components). This would allow binding of the components with, say, Redux and for sophisticated state management outside of OpenLayers.
+We are very grateful to Richard Hills for publishing the first version of
+`ol-react` on which this version is built.
