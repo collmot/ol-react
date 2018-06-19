@@ -1,5 +1,6 @@
 import Map from 'ol/map'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 import { withMap } from '../context'
 import EventRegistry from '../util/event-registry'
@@ -82,9 +83,8 @@ export function createOLInteractionComponent (name, factory, options = {}) {
     removeInteraction_ (oldProps) {
       const { map } = oldProps
 
-      this.updateProps_({}, oldProps)
-
       if (this.interaction !== undefined) {
+        this.updateProps_({}, oldProps)
         if (map !== undefined) {
           map.removeInteraction(this.interaction)
         }

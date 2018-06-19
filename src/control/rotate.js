@@ -2,33 +2,29 @@ import RotateControl from 'ol/control/rotate'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { withMap } from '../context'
-import OLControl from './ol-control'
+import { createOLControlComponent } from './ol-control'
 
-class Rotate extends OLControl {
-  createControl (props) {
-    return new RotateControl({
-      autoHide: props.autoHide,
-      className: props.className,
-      duration: props.duration,
-      label: props.label,
-      resetNorth: props.resetNorth,
-      tipLabel: props.tipLabel
-    })
+export default createOLControlComponent(
+  'Rotate',
+  props => new RotateControl({
+    autoHide: props.autoHide,
+    className: props.className,
+    duration: props.duration,
+    label: props.label,
+    resetNorth: props.resetNorth,
+    tipLabel: props.tipLabel
+  }),
+  {
+    propTypes: {
+      autoHide: PropTypes.bool,
+      className: PropTypes.string,
+      duration: PropTypes.number,
+      label: PropTypes.node,
+      resetNorth: PropTypes.func,
+      tipLabel: PropTypes.string
+    },
+    fragileProps: [
+      'autoHide', 'className', 'duration', 'label', 'resetNorth', 'tipLabel'
+    ]
   }
-}
-
-Rotate.propTypes = Object.assign({}, OLControl.propTypes, {
-  autoHide: PropTypes.bool,
-  className: PropTypes.string,
-  duration: PropTypes.number,
-  label: PropTypes.node,
-  resetNorth: PropTypes.func,
-  tipLabel: PropTypes.string
-})
-
-Rotate.olProps = [
-  'autoHide', 'className', 'duration', 'label', 'resetNorth', 'tipLabel'
-]
-
-export default withMap(Rotate)
+)

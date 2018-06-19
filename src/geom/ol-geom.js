@@ -11,7 +11,6 @@ export function createOLGeometryComponent (name, factory, options = {}) {
       this.updateProps_(props, {})
 
       if (feature) {
-        console.log('mounting gemoetry: ', this.geometry)
         feature.setGeometry(this.geometry)
       }
     }
@@ -71,8 +70,9 @@ export function createOLGeometryComponent (name, factory, options = {}) {
 
       // don't call updateProps_({}) here, it will cause problems as it will
       // set the coordinates of the feature to null
-      console.log('unmounting gemoetry: ', this.geometry)
-      feature.setGeometry(undefined)
+      if (feature !== undefined) {
+        feature.setGeometry(undefined)
+      }
     }
 
     updateProps_ (newProps, oldProps) {

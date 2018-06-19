@@ -1,5 +1,5 @@
 import OLFeature from 'ol/feature'
-import Source from 'ol/source/source'
+import OLSource from 'ol/source/source'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -10,44 +10,79 @@ export default class Feature extends React.Component {
   constructor (props) {
     super(props)
 
+    // We need to create the feature here so we can pass it down to
+    // child geometries with the first render
     this.feature = new OLFeature({})
     this.feature.setId(props.id)
-
-    this._updateFromProps(props)
   }
 
   componentDidMount () {
-    this.context.source.addFeature(this.feature)
+    this.addFeature_(this.props)
   }
 
-  componentDidUpdate () {
-    this._updateFromProps(this.props)
+  componentDidUpdate (prevProps) {
+    this.propsMaybeChanged_(this.props, prevProps)
   }
 
   componentWillUnmount () {
-    this.context.source.removeFeature(this.feature)
+    this.removeFeature_(this.props)
   }
 
   render () {
     const geom = React.Children.only(this.props.children)
-    return React.cloneElement(geom, {
+    return geom ? React.cloneElement(geom, {
       feature: this.feature
-    })
+    }) : geom
   }
 
-  _updateFromProps (props) {
-    // Don't try to update the ID here, it won't work. We should rather
-    // show a warning if the user tries to change the ID
-    this.feature.setStyle(buildStyle(props.style))
+  addFeature_ (props) {
+    const { source } = props
+
+    this.updateProps_(props, {})
+
+    if (source) {
+      source.addFeature(this.feature)
+    }
+  }
+
+  needsNewFeatureInstance_ (newProps, oldProps) {
+    const propNames = ['id', 'source']
+    for (let propName of propNames) {
+      if (newProps[propName] !== oldProps[propName]) {
+        return true
+      }
+    }
+
+    return false
+  }
+
+  propsMaybeChanged_ (newProps, oldProps) {
+    if (this.needsNewFeatureInstance_(newProps, oldProps)) {
+      this.removeFeature_(oldProps)
+      this.addFeature_(newProps)
+    } else {
+      this.updateProps_(newProps, oldProps)
+    }
+  }
+
+  removeFeature_ (oldProps) {
+    const { source } = oldProps
+
+    if (source !== undefined) {
+      source.removeFeature(this.feature)
+    }
+  }
+
+  updateProps_ (newProps, oldProps) {
+    if (newProps.style !== oldProps.style) {
+      this.feature.setStyle(buildStyle(newProps.style))
+    }
   }
 }
 
 Feature.propTypes = {
   id: PropTypes.any.isRequired,
+  source: PropTypes.instanceOf(OLSource),
   style: OLPropTypes.Style,
   children: PropTypes.element,
-}
-
-Feature.contextTypes = {
-  source: PropTypes.instanceOf(Source)
 }

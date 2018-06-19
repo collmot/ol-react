@@ -42,9 +42,13 @@ export function createOLSourceComponent (name, factory, options = {}) {
     }
 
     render () {
-      return this.props.children ? (
-        <React.Fragment>{this.props.children}</React.Fragment>
-      ) : null
+      return (
+        <div style={{ display: 'none' }}>
+          {options.renderChildren
+            ? options.renderChildren.call(this, this.props.children)
+            : this.props.children}
+        </div>
+      )
     }
 
     createSource_ (props) {
@@ -86,12 +90,6 @@ export function createOLSourceComponent (name, factory, options = {}) {
 
     updateProps_ (newProps, oldProps) {
     }
-
-    getChildContext() {
-      return {
-        source: this.source
-      }
-    }
   }
 
   result.displayName = name
@@ -101,10 +99,6 @@ export function createOLSourceComponent (name, factory, options = {}) {
   }, options.propTypes)
 
   result.defaultProps = Object.assign({}, options.defaultProps)
-
-  result.childContextTypes = {
-    source: PropTypes.instanceOf(Source)
-  }
 
   return withLayer(result)
 }

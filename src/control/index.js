@@ -1,4 +1,4 @@
-export { default as OLControl } from './ol-control';
+export { createOLControlComponent } from './ol-control';
 
 export { default as Attribution } from './attribution';
 export { default as FullScreen } from './full-screen';

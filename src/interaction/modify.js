@@ -9,16 +9,15 @@ import { createOLInteractionComponent } from './ol-interaction'
 export default createOLInteractionComponent(
   'Modify',
   props => {
-    if (props.features !== undefined || props.source !== undefined) {
+    if (props.features !== undefined) {
       return new ModifyInteraction({
         condition: props.condition,
-        features: props.features,
-        source: props.source
+        features: props.features
       })
-    } else if (this.context && this.context.source !== undefined) {
+    } else if (props.source !== undefined) {
       return new ModifyInteraction({
         condition: props.condition,
-        source: this.context.source
+        source: props.source
       })
     } else {
       return undefined
