@@ -2,6 +2,8 @@
  * @file Property type validators for OpenLayers custom typedefs.
  */
 
+import Collection from 'ol/collection'
+import Layer from 'ol/layer/layer'
 import Projection from 'ol/proj/projection'
 import Style from 'ol/style/style'
 import PropTypes from 'prop-types'
@@ -26,6 +28,17 @@ OLPropTypes.Extent = function (props, propName, componentName) {
 OLPropTypes.AttributionLike = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.arrayOf(PropTypes.string),
+  PropTypes.func
+])
+
+OLPropTypes.LayerCollection = PropTypes.oneOfType([
+  PropTypes.arrayOf(PropTypes.instanceOf(Layer)),
+  PropTypes.instanceOf(Collection)
+])
+
+OLPropTypes.LayerFilter = PropTypes.oneOfType([
+  PropTypes.arrayOf(PropTypes.instanceOf(Layer)),
+  PropTypes.instanceOf(Collection),
   PropTypes.func
 ])
 

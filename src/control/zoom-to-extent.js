@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import { withMap } from '../context'
-import OLPropTypes from '../ol-proptypes'
+import OLPropTypes from '../ol-prop-types'
 
 import OLControl from './ol-control'
 

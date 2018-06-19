@@ -1,7 +1,7 @@
 import OSMSource from 'ol/source/osm'
 import PropTypes from 'prop-types'
 
-import OLPropTypes from '../ol-proptypes'
+import OLPropTypes from '../ol-prop-types'
 
 import { createOLSourceComponent } from './ol-source'
 

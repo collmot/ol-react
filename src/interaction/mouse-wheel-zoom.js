@@ -1,24 +1,19 @@
 import MouseWheelZoomInteraction from 'ol/interaction/mousewheelzoom'
 import PropTypes from 'prop-types'
 
-import { withMap } from '../context'
+import { createOLInteractionComponent } from './ol-interaction'
 
-import OLInteraction from './ol-interaction'
-
-class MouseWheelZoom extends OLInteraction {
-  createInteraction (props) {
-    return new MouseWheelZoomInteraction({
-      duration: props.duration,
-      useAnchor: props.useAnchor
-    })
+export default createOLInteractionComponent(
+  'MouseWheelZoom',
+  props => new MouseWheelZoomInteraction({
+    duration: props.duration,
+    useAnchor: props.useAnchor
+  }),
+  {
+    propTypes: {
+      duration: PropTypes.number,
+      useAnchor: PropTypes.bool
+    },
+    sensitiveProps: ['duration', 'useAnchor']
   }
-}
-
-MouseWheelZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
-  duration: PropTypes.number,
-  useAnchor: PropTypes.bool
-})
-
-MouseWheelZoom.olProps = ['duration', 'useAnchor']
-
-export default withMap(MouseWheelZoom)
+)

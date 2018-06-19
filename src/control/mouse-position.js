@@ -5,7 +5,7 @@ import React from 'react'
 import OLControl from './ol-control'
 
 import { withMap } from '../context'
-import OLPropTypes from '../ol-proptypes'
+import OLPropTypes from '../ol-prop-types'
 
 class MousePosition extends OLControl {
   createControl (props) {

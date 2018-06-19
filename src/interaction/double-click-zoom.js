@@ -1,24 +1,19 @@
 import DoubleClickZoomInteraction from 'ol/interaction/doubleclickzoom'
 import PropTypes from 'prop-types'
 
-import { withMap } from '../context'
+import { createOLInteractionComponent } from './ol-interaction'
 
-import OLInteraction from './ol-interaction'
-
-class DoubleClickZoom extends OLInteraction {
-  createInteraction (props) {
-    return new DoubleClickZoomInteraction({
-      delta: props.delta,
-      duration: props.duration
-    })
+export default createOLInteractionComponent(
+  'DoubleClickZoom',
+  props => new DoubleClickZoomInteraction({
+    delta: props.delta,
+    duration: props.duration
+  }),
+  {
+    propTypes: {
+      delta: PropTypes.number,
+      duration: PropTypes.number
+    },
+    sensitiveProps: ['delta', 'duration']
   }
-}
-
-DoubleClickZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
-  delta: PropTypes.number,
-  duration: PropTypes.number
-})
-
-DoubleClickZoom.olProps = ['delta', 'duration']
-
-export default withMap(DoubleClickZoom)
+)

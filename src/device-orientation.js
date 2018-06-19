@@ -2,7 +2,7 @@ import OLDeviceOrientation from 'ol/deviceorientation'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import OLPropTypes from './ol-proptypes'
+import OLPropTypes from './ol-prop-types'
 import EventRegistry from './util/event-registry'
 
 export default class DeviceOrientation extends React.Component {

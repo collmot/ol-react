@@ -1,26 +1,21 @@
 import KeyboardPanInteraction from 'ol/interaction/keyboardpan'
 import PropTypes from 'prop-types'
 
-import { withMap } from '../context'
+import { createOLInteractionComponent } from './ol-interaction'
 
-import OLInteraction from './ol-interaction'
-
-class KeyboardPan extends OLInteraction {
-  createInteraction (props) {
-    return new KeyboardPanInteraction({
-      condition: props.condition,
-      duration: props.duration,
-      pixelDelta: props.pixelDelta
-    })
+export default createOLInteractionComponent(
+  'KeyboardPan',
+  props => new KeyboardPanInteraction({
+    condition: props.condition,
+    duration: props.duration,
+    pixelDelta: props.pixelDelta
+  }),
+  {
+    propTypes: {
+      condition: PropTypes.func,
+      duration: PropTypes.number,
+      pixelDelta: PropTypes.number
+    },
+    sensitiveProps: ['condition', 'duration', 'pixelDelta']
   }
-}
-
-KeyboardPan.propTypes = Object.assign({}, OLInteraction.propTypes, {
-  condition: PropTypes.func,
-  duration: PropTypes.number,
-  pixelDelta: PropTypes.number
-})
-
-KeyboardPan.olProps = ['condition', 'duration', 'pixelDelta']
-
-export default withMap(KeyboardPan)
+)

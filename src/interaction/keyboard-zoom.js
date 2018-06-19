@@ -1,26 +1,21 @@
 import KeyboardZoomInteraction from 'ol/interaction/keyboardzoom'
 import PropTypes from 'prop-types'
 
-import { withMap } from '../context'
+import { createOLInteractionComponent } from './ol-interaction'
 
-import OLInteraction from './ol-interaction'
-
-class KeyboardZoom extends OLInteraction {
-  createInteraction (props) {
-    return new KeyboardZoomInteraction({
-      condition: props.condition,
-      delta: props.delta,
-      duration: props.duration
-    })
+export default createOLInteractionComponent(
+  'KeyboardZoom',
+  props => new KeyboardZoomInteraction({
+    condition: props.condition,
+    delta: props.delta,
+    duration: props.duration
+  }),
+  {
+    propTypes: {
+      condition: PropTypes.func,
+      delta: PropTypes.number,
+      duration: PropTypes.number
+    },
+    sensitiveProps: ['condition', 'duration', 'pixelDelta'],
   }
-}
-
-KeyboardZoom.propTypes = Object.assign({}, OLInteraction.propTypes, {
-  condition: PropTypes.func,
-  delta: PropTypes.number,
-  duration: PropTypes.number
-})
-
-KeyboardZoom.olProps = ['condition', 'duration', 'pixelDelta']
-
-export default withMap(KeyboardZoom)
+)

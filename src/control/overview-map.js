@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import { withMap } from '../context'
+import OLPropTypes from '../ol-prop-types'
+
 import OLControl from './ol-control'
 
 class OverviewMap extends OLControl {
@@ -29,10 +31,7 @@ OverviewMap.propTypes = Object.assign({}, OLControl.propTypes, {
   collapseLabel: PropTypes.string,
   collapsible: PropTypes.bool,
   label: PropTypes.node,
-  layers: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.instanceOf(Layer)),
-    PropTypes.instanceOf(Collection)
-  ]),
+  layers: OLPropTypes.LayerCollection,
   tipLabel: PropTypes.string,
   view: PropTypes.instanceOf(View)
 })

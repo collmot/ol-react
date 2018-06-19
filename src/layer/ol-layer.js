@@ -5,7 +5,7 @@ import React from 'react'
 
 import { LayerContext, withMap } from '../context'
 import OLComponent from '../ol-component'
-import OLPropTypes from '../ol-proptypes'
+import OLPropTypes from '../ol-prop-types'
 import { buildStyle } from '../style'
 
 export function createOLLayerComponent (name, factory, options = {}) {

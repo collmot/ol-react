@@ -1,4 +1,4 @@
-export { default as OLInteraction } from './ol-interaction';
+export { createOLInteractionComponent } from './ol-interaction';
 
 export { default as DoubleClickZoom } from './double-click-zoom';
 export { default as DragBox } from './drag-box';

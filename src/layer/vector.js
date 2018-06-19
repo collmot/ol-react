@@ -1,7 +1,7 @@
 import VectorLayer from 'ol/layer/vector'
 import PropTypes from 'prop-types'
 
-import OLPropTypes from '../ol-proptypes'
+import OLPropTypes from '../ol-prop-types'
 import { buildStyle } from '../style'
 
 import { createOLLayerComponent } from './ol-layer'

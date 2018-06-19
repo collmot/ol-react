@@ -3,7 +3,7 @@ import Source from 'ol/source/source'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import OLPropTypes from './ol-proptypes'
+import OLPropTypes from './ol-prop-types'
 import { buildStyle, StylePropType } from './style'
 
 export default class Feature extends React.Component {

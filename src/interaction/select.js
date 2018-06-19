@@ -1,24 +1,19 @@
 import SelectInteraction from 'ol/interaction/select'
 import PropTypes from 'prop-types'
 
-import { withMap } from '../context'
+import { createOLInteractionComponent } from './ol-interaction'
 
-import OLInteraction from './ol-interaction'
-
-class Select extends OLInteraction {
-  createInteraction (props) {
-    return new SelectInteraction({
-      condition: props.condition
-    })
+export default createOLInteractionComponent(
+  'Select',
+  props => new SelectInteraction({
+    condition: props.condition
+  }),
+  {
+    propTypes: {
+      condition: PropTypes.func,
+      select: PropTypes.func
+    },
+    events: ['select'],
+    sensitiveProps: ['condition']
   }
-}
-
-Select.propTypes = Object.assign({}, OLInteraction.propTypes, {
-  condition: PropTypes.func,
-  select: PropTypes.func
-})
-
-Select.olEvents = ['select']
-Select.olProps = ['condition']
-
-export default withMap(Select)
+)
