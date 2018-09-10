@@ -1,6 +1,6 @@
 {
   "name": "@collmot/ol-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React interface for OpenLayers, forked from ol-react",
   "main": "lib/index.js",
   "scripts": {
