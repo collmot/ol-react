@@ -10,6 +10,7 @@ export default createOLSourceComponent(
     propTypes: {
       params: PropTypes.object.isRequired,
       url: PropTypes.string
-    }
+    },
+    fragileProps: ['params', 'url']
   }
 )

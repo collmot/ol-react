@@ -13,6 +13,7 @@ export default createOLSourceComponent(
   {
     propTypes: {
       apiKey: PropTypes.string.isRequired
-    }
+    },
+    fragileProps: ['apiKey']
   }
 )

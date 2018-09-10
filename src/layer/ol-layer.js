@@ -59,7 +59,7 @@ export function createOLLayerComponent (name, factory, options = {}) {
         return true
       }
 
-      const propNames = this.constructor.olProps || []
+      const propNames = options.fragileProps || []
       for (let propName of propNames) {
         if (newProps[propName] !== oldProps[propName]) {
           return true

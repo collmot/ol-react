@@ -21,6 +21,10 @@ export default createOLSourceComponent(
     defaultProps: {
       opaque: true,
       wrapX: true
-    }
+    },
+    fragileProps: [
+      'attributions', 'cacheSize', 'crossOrigin', 'maxZoom', 'opaque',
+      'url', 'wrapX'
+    ]
   }
 )

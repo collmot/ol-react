@@ -13,6 +13,7 @@ export default createOLSourceComponent(
     propTypes: {
       ratio: PropTypes.number,
       url: PropTypes.string.isRequired
-    }
+    },
+    fragileProps: ['ratio', 'url']
   }
 )

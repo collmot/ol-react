@@ -9,6 +9,7 @@ export default createOLSourceComponent(
   {
     propTypes: {
       url: PropTypes.string
-    }
+    },
+    fragileProps: ['url']
   }
 )

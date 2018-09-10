@@ -18,6 +18,9 @@ export default createOLLayerComponent(
       style: OLPropTypes.Style,
       updateWhileAnimating: PropTypes.bool,
       updateWhileInteracting: PropTypes.bool
-    }
+    },
+    fragileProps: [
+      'updateWhileAnimating', 'updateWhileInteracting'
+    ]
   }
 )
